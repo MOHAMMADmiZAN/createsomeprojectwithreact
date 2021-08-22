@@ -20,7 +20,9 @@ function ShoppingCart(props) {
                 </Card.Body>
             </Card>
         </>
+
     );
+
 }
 
 export default ShoppingCart;
