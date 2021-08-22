@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Shippori+Mincho:wght@400;500;700&display=swap');
+
+:root {
+    /* Font Families */
+    --brand-font-family: 'Redressed', cursive;
+    --text-font-family: 'Shippori Mincho', serif;
+
+
+}
+
+.marginTop20 {
+    margin-top: 20px!important;
+}
+
+.cardCustom {
+    background: rgba(100, 159, 237, 0.1);
+    border-radius: 10px !important;
+    border-top: 2px solid cornflowerblue !important;
+    border-bottom: 2px solid cornflowerblue !important;
+    margin-top: 20px;
+
+}
+
+.cardHeaderCustom {
+    padding: 20px 0 !important;
+    text-align: center !important;
+    color: cornflowerblue;
+    font-family: var(--brand-font-family);
+    font-weight: 900;
+
+}
+
+.paddingLabel10 {
+    padding: 5px !important;
+}
+
+.cardBodyCustom {
+    text-align: center;
+}
+
+.calculatorKey {
+    margin: 10px;
+    font-weight: 900;
+    font-size: 30px;
+    min-width: 75px;
+    min-height: 75px;
+    text-align: center;
+    line-height: 75px;
+    text-transform: uppercase;
+}
+
+.calculatorResult {
+    font-family: var(--text-font-family) !important;
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 !important;
+    border-radius: 5px;
+
+
+}
+
+.calculatorResultValue {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.notFound {
+    align-items: center;
+    min-height: 100vh;
+}
+
+.padding {
+    padding: 5px;
+}
+
+.countResultButton {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+
+}
+
+.calculatorResultInput {
+    border: none;
+    outline: none;
+    padding: 0;
+}
+
+.calculatorResultInput:focus {
+    outline: none;
+}
+
+.cartItemName {
+    font-family: var(--text-font-family);
+    font-weight: 500;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+
+}
+
+.cardItemQur {
+    font-family: var(--text-font-family);
+    font-weight: 400;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.cartItemAmount {
+    font-family: var(--text-font-family);
+    font-weight: 700;
+    text-align: center;
+    font-size: 24px;
+    color: red;
+    margin-bottom: 5px;
+}
+.cartCard{
+    background: rgba(119,87,194,0.1);
+    border-radius: 10px !important;
+    border-top: 2px solid #7757c2 !important;
+    border-bottom: 2px solid #7757c2 !important;
+    margin-top: 20px;
+    padding: 5px 0;
+}
+.cartImg {
+    height: 130px;
+    max-width: 100%;
+}
