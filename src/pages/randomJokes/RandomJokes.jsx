@@ -22,7 +22,7 @@ function RandomJokes() {
         document.title = 'Random Jokes'
     })
     useEffect(() => {
-        jokesClick().then()
+        jokesClick()
     }, [])
 
     return (
