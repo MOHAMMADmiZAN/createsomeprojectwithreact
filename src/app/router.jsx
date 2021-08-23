@@ -8,6 +8,7 @@ import Counter from "../pages/counter/Counter";
 import Users from "../pages/usersData/Users";
 import Clock from "../pages/clock/Clock";
 import ShoppingCartData from "../pages/shoppingCart/ShoppingCartData";
+import RandomJokes from "../pages/randomJokes/RandomJokes";
 
 
 function AppRouter() {
@@ -20,6 +21,7 @@ function AppRouter() {
             <Users path={"/usersData"}/>
             <Clock path={"/clock"}/>
             <ShoppingCartData path={"/cart"}/>
+            <RandomJokes path={"/jokes"}/>
             <NotFound default/>
         </Router>
     )
