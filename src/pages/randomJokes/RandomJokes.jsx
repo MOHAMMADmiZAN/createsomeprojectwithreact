@@ -35,7 +35,7 @@ function RandomJokes() {
                                 Random Jokes App
                             </Card.Header>
                             <Card.Body className={styles.cardBodyCustom}>
-                                <h6>{joke}</h6>
+                                <h6 className={styles.cartItemName}>{joke}</h6>
                                 <Button className={`${styles.countResultButton} ${styles.marginTop20}`}
                                         variant={'secondary'} onClick={jokesClick}>
                                     Click Me
