@@ -9,6 +9,7 @@ import Users from "../pages/usersData/Users";
 import Clock from "../pages/clock/Clock";
 import ShoppingCartData from "../pages/shoppingCart/ShoppingCartData";
 import RandomJokes from "../pages/randomJokes/RandomJokes";
+import RandomColor from "../pages/randomColor/RandomColor";
 
 
 function AppRouter() {
@@ -22,6 +23,7 @@ function AppRouter() {
             <Clock path={"/clock"}/>
             <ShoppingCartData path={"/cart"}/>
             <RandomJokes path={"/jokes"}/>
+            <RandomColor path={"/color"}/>
             <NotFound default/>
         </Router>
     )
