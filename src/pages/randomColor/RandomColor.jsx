@@ -71,7 +71,7 @@ function RandomColor() {
                             <Card.Body className={styles.cardBodyCustom}>
                                 <FontAwesomeIcon icon={logo} size={"10x"} pulse style={{..._styles}} border/>
                                 <CartButton className={styles.marginTop20} onClick={colorClick}
-                                            style={{backgroundColor: color}}>CLICK
+                                            style={{backgroundColor: color,color: "#fff"}}>CLICK
                                     ME</CartButton>
                             </Card.Body>
                         </Card>
