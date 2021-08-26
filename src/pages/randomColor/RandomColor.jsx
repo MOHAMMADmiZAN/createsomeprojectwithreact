@@ -29,12 +29,12 @@ function RandomColor() {
 
     /// generate random color function
     function getRandomColor() {
-        const letters = '0123456789abcdef';
-        let hash = '#';
+        const hexLetters = 'abcdef1234567890';
+        let hex = '#';
         for (let i = 1; i <= 6; i++) {
-            hash += letters[Math.floor(Math.random() * letters.length)];
+            hex += hexLetters[Math.floor(Math.random() * hexLetters.length)];
         }
-        return hash;
+        return hex;
     }
 
     /// create random logo form array
