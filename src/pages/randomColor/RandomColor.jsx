@@ -27,19 +27,20 @@ function RandomColor() {
 
     }
 
+    /// generate random color function
     function getRandomColor() {
         const letters = '0123456789abcdef';
         let hash = '#';
-        for (let i = 0; i < 6; i++) {
+        for (let i = 1; i <= 6; i++) {
             hash += letters[Math.floor(Math.random() * letters.length)];
         }
         return hash;
     }
 
+    /// create random logo form array
     const logoArray = [faReact, faVuejs, faPhp, faAngular, faPython, faRust, faSymfony, faLaravel, faJs, faLinux, faDev,]
-    const randomLogo = () => {
-        return logoArray[Math.floor(Math.random() * logoArray.length)]
-    }
+    const randomLogo = () => logoArray[Math.floor(Math.random() * logoArray.length)]
+
     const colorClick = async () => {
         // let colorApi = "https://www.colr.org/json/color/random"
         // try {
@@ -52,6 +53,8 @@ function RandomColor() {
         // }
         setColor(prevState => getRandomColor())
         setLogo(prevState => randomLogo())
+        console.log(getRandomColor())
+        console.log(randomLogo())
 
     }
     useEffect(() => {
@@ -69,9 +72,9 @@ function RandomColor() {
                             <Card.Header className={styles.cardHeaderCustom} as={"h5"} style={{color: color}}>RANDOM
                                 COLOR</Card.Header>
                             <Card.Body className={styles.cardBodyCustom}>
-                                <FontAwesomeIcon icon={logo} size={"10x"} pulse style={{..._styles}} border/>
+                                <FontAwesomeIcon icon={logo} size={"10x"} pulse={true} style={{..._styles}} border/>
                                 <CartButton className={styles.marginTop20} onClick={colorClick}
-                                            style={{backgroundColor: color,color: "#fff"}}>CLICK
+                                            style={{backgroundColor: color, color: "#fff"}}>CLICK
                                     ME</CartButton>
                             </Card.Body>
                         </Card>
