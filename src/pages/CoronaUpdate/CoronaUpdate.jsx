@@ -14,6 +14,7 @@ function CoronaUpdate() {
             deathsCount: 0,
         }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const covid19 = () => {
         const options = {
             method: 'GET',
@@ -42,7 +43,7 @@ function CoronaUpdate() {
     }
     useEffect(() => {
         covid19()
-    },)
+    },[])
 
     return (
         <>
