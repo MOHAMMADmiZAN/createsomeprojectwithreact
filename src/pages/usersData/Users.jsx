@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {Card, Col, Container, Row, Table} from "react-bootstrap";
-import styles from '../../assets/styles/global.module.css'
+import styles from '../../assets/styles/global.module.css';
+import LinkPath from "../../components/Link/LinkPath";
+
 
 
 const Users = () => {
@@ -53,6 +55,7 @@ const Users = () => {
                         <Card.Header className={styles.cardHeaderCustom} as={'h3'}>
                             Users Data List
                         </Card.Header>
+                        <Card.Title><LinkPath/></Card.Title>
                         <Card.Body className={styles.cardBodyCustom}>
                             <Table variant={'primary'} striped bordered hover>
                                 <thead>

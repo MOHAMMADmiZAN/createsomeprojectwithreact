@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--text-font-family);
     text-transform: uppercase;
     font-weight: 600;
+    text-align: center;
   }
 
   body {

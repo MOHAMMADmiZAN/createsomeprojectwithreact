@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Col, Row} from "react-bootstrap";
 import styles from "../../assets/styles/global.module.css"
+import LinkPath from "../../components/Link/LinkPath";
 
 function Home(props) {
     const homeCardStyle = {
@@ -25,6 +26,7 @@ function Home(props) {
         position: "relative",
 
     }
+
     return (
 
         <Row>
@@ -33,6 +35,9 @@ function Home(props) {
                     <Card.Header className={styles.cardHeaderCustom} as={"h2"}>
                         Home Page
                     </Card.Header>
+                    <Card.Title style={{textAlign: 'center',}}>
+                        <LinkPath/>
+                    </Card.Title>
                     <Card.Body className={styles.cardBodyCustom} style={{...cardBodyStyle}}>
                         <h1 style={{...homeTextStyle}}>Create Some Project With React</h1>
                     </Card.Body>
