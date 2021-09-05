@@ -46,7 +46,7 @@ const Rform = () => {
                         <Card.Body>
                             <Form onSubmit={formSubmit}>
                                 <Form.Group as={Col} controlId={'formName'}>
-                                    <Form.Label className={'paddingLabel10'}>name:</Form.Label>
+                                    <Form.Label className={styles.paddingLabel10}>name:</Form.Label>
                                     <Form.Control type={'text'} placeholder={'Type Your Name'}
                                                   onChange={(e) => setName(e.target.value)}>
                                     </Form.Control>

@@ -11,6 +11,7 @@ import ShoppingCartData from "../pages/shoppingCart/ShoppingCartData";
 import RandomJokes from "../pages/randomJokes/RandomJokes";
 import RandomColor from "../pages/randomColor/RandomColor";
 import CoronaUpdate from "../pages/CoronaUpdate/CoronaUpdate";
+import Crud from "../pages/crud/crud";
 
 
 function AppRouter() {
@@ -26,6 +27,7 @@ function AppRouter() {
             <RandomJokes path={"/jokes"}/>
             <RandomColor path={"/color"}/>
             <CoronaUpdate path={"/covid19"}/>
+            <Crud path={"/crud"}/>
             <NotFound default/>
         </Router>
     )

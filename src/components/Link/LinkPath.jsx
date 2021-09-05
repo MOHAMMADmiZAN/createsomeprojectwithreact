@@ -23,6 +23,7 @@ function LinkPath() {
             <Link to={'/jokes'} style={{...linkStyle}}>Jokes</Link>
             <Link to={'/color'} style={{...linkStyle}}>Color</Link>
             <Link to={'/covid19'} style={{...linkStyle}}>Covid19</Link>
+            <Link to={'/crud'} style={{...linkStyle}}>Crud</Link>
         </>
     );
 }
