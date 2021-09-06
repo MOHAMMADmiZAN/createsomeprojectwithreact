@@ -48,7 +48,7 @@ function Crud() {
         try {
             const response = await fetch(url)
             let data = await response.json();
-            setData(data)
+             setData(() => data)
             console.log(data)
 
         } catch (e) {
@@ -69,9 +69,8 @@ function Crud() {
     }
     const updatedStudent = (studentId) => {
         setLgShow(true)
-        setUpId(studentId)
-        console.log(upId)
-        console.log(lgShow)
+        setUpId(() => studentId)
+
     }
     const insertStudent = async (e) => {
         e.preventDefault()
