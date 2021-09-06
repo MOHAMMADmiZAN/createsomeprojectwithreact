@@ -11,7 +11,7 @@ function RandomJokes() {
         try {
             const response = await axios.get(jokesApi)
             const responseData = await response.data.value
-            setJoke((prevState) => responseData)
+            setJoke(() => responseData)
         } catch (e) {
             console.log(e)
         }
