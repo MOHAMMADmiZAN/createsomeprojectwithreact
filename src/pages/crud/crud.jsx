@@ -6,6 +6,7 @@ import styles from "../../assets/styles/global.module.css"
 function Crud() {
     const [data, setData] = useState([])
     const [lgShow, setLgShow] = useState(false);
+    const [upData, setUpData] = useState([])
 
     const [studentData, setStudentData] = useState({
         name: "",
@@ -13,6 +14,14 @@ function Crud() {
         department: "",
         section: "",
     })
+    const [upDataResponse, setUpDataResponse] = useState(
+        {
+            name: upData.name,
+            roll: upData.roll,
+            department: upData.department,
+            section: upData.section,
+        }
+    )
     const handleClick = (e) => {
         setStudentData(
             {
@@ -21,6 +30,14 @@ function Crud() {
             }
         )
 
+    }
+    const upHandelClick = (e) => {
+        setUpDataResponse(
+            {
+                ...upDataResponse,
+                [e.target.name]: e.target.value
+            }
+        )
     }
     useEffect(() => {
         document.title = "Crud"
@@ -49,7 +66,19 @@ function Crud() {
             console.log(e)
         }
     }
+    const updatedStudent = async (studentId) => {
+        let updateUrl = `http://127.0.0.1:8000/api/studentsUpdate/${studentId}`
+        try {
+            const updateResponse = await fetch(updateUrl)
+            let updateData = await updateResponse.json();
+            setUpData(updateData)
+            setLgShow(true)
+            console.log(upData)
 
+        } catch (e) {
+            console.log(e)
+        }
+    }
     const insertStudent = async (e) => {
         e.preventDefault()
         let insertStudentUrl = 'http://127.0.0.1:8000/api/studentInsert'
@@ -62,8 +91,26 @@ function Crud() {
                 body: JSON.stringify(studentData)
             });
             return insertResponse.json()
-        } catch (e) {
-            console.log(e)
+        } catch (err) {
+            console.log(err)
+        }
+
+        console.log(...studentData)
+    }
+    const updateResponse = async (e) => {
+        e.preventDefault()
+        let insertStudentUrl = 'http://127.0.0.1:8000/api/studentInsert'
+        try {
+            const insertResponse = await fetch(insertStudentUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(studentData)
+            });
+            return insertResponse.json()
+        } catch (err) {
+            console.log(err)
         }
 
         console.log(...studentData)
@@ -104,7 +151,7 @@ function Crud() {
                                                 <td>{d.department}</td>
                                                 <td>{d.section}</td>
                                                 <td><Button variant={"info"} className={`mx-1`}
-                                                            onClick={() => setLgShow(true)}>Update</Button>
+                                                            onClick={() => updatedStudent(d.id)}>Update</Button>
                                                     <Button variant={"danger"} className={`mx-1`}
                                                             onClick={() => deletedStudent(d.id)}>Delete</Button>
                                                 </td>
@@ -159,10 +206,43 @@ function Crud() {
                                 >
                                     <Modal.Header closeButton>
                                         <Modal.Title id="example-modal-sizes-title-lg">
-                                            Large Modal
+                                            Update Student Data
                                         </Modal.Title>
                                     </Modal.Header>
-                                    <Modal.Body>...</Modal.Body>
+                                    <Modal.Body>
+                                        <Form onSubmit={updateResponse}>
+                                            <Form.Group controlId={"studentName"}>
+                                                <Form.Label className={styles.paddingLabel10}> Student
+                                                    Name:</Form.Label>
+                                                <Form.Control type={'text'} placeholder={'Type Student Name'}
+                                                              name={"name"} onChange={upHandelClick}>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <Form.Group controlId={"studentRoll"}>
+                                                <Form.Label className={styles.paddingLabel10}> Student
+                                                    Roll:</Form.Label>
+                                                <Form.Control type={'text'} placeholder={'Type Student Roll'}
+                                                              name={"roll"} onChange={upHandelClick}>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <Form.Group controlId={"studentDepartment"}>
+                                                <Form.Label className={styles.paddingLabel10}> Student
+                                                    Department:</Form.Label>
+                                                <Form.Control type={'text'} placeholder={'Type Student Department Name'}
+                                                              name={"department"} onChange={upHandelClick}>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <Form.Group controlId={"studentSection"}>
+                                                <Form.Label className={styles.paddingLabel10}> Student
+                                                    Section:</Form.Label>
+                                                <Form.Control type={'text'} placeholder={'Type Student Section'}
+                                                              name={"section"} onChange={upHandelClick}>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <Button variant={"info"} style={{marginTop: "10px"}}
+                                                    type={"submit"}>Update</Button>
+                                        </Form>
+                                    </Modal.Body>
                                 </Modal>
                             </Card.Body>
 
