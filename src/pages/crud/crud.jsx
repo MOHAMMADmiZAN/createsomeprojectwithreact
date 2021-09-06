@@ -6,7 +6,8 @@ import styles from "../../assets/styles/global.module.css"
 function Crud() {
     const [data, setData] = useState([])
     const [lgShow, setLgShow] = useState(false);
-    const [upData, setUpData] = useState([])
+    const [upId, setUpId] = useState(0)
+
 
     const [studentData, setStudentData] = useState({
         name: "",
@@ -16,10 +17,10 @@ function Crud() {
     })
     const [upDataResponse, setUpDataResponse] = useState(
         {
-            name: upData.name,
-            roll: upData.roll,
-            department: upData.department,
-            section: upData.section,
+            name: "",
+            roll: 0,
+            department: "",
+            section: "",
         }
     )
     const handleClick = (e) => {
@@ -66,18 +67,11 @@ function Crud() {
             console.log(e)
         }
     }
-    const updatedStudent = async (studentId) => {
-        let updateUrl = `http://127.0.0.1:8000/api/studentsUpdate/${studentId}`
-        try {
-            const updateResponse = await fetch(updateUrl)
-            let updateData = await updateResponse.json();
-            setUpData(updateData)
-            setLgShow(true)
-            console.log(upData)
-
-        } catch (e) {
-            console.log(e)
-        }
+    const updatedStudent = (studentId) => {
+        setLgShow(true)
+        setUpId(studentId)
+        console.log(upId)
+        console.log(lgShow)
     }
     const insertStudent = async (e) => {
         e.preventDefault()
@@ -97,23 +91,24 @@ function Crud() {
 
         console.log(...studentData)
     }
-    const updateResponse = async (e, studentId) => {
+    const updateResponse = async (e) => {
         e.preventDefault()
-        let updateResponseStudentUrl = `http://127.0.0.1:8000/api/studentsUpdateResponse/${studentId}`
+        console.log(upId)
+        setLgShow(false)
+        let updateResponseStudentUrl = `http://127.0.0.1:8000/api/studentsUpdateResponse/${upId}`
         try {
-            const insertResponse = await fetch(updateResponseStudentUrl, {
+            const updateInsertResponse = await fetch(updateResponseStudentUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(upDataResponse)
             });
-            return insertResponse.json()
+            return updateInsertResponse.json()
         } catch (err) {
             console.log(err)
         }
 
-        console.log(...upDataResponse)
     }
     useEffect(() => {
         fetchStudent()
