@@ -44,7 +44,6 @@ function RandomJokes() {
                         </Card>
                     </Col>
                 </Row>
-
             </Container>
         </>
     );
