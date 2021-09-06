@@ -97,23 +97,23 @@ function Crud() {
 
         console.log(...studentData)
     }
-    const updateResponse = async (e) => {
+    const updateResponse = async (e, studentId) => {
         e.preventDefault()
-        let insertStudentUrl = 'http://127.0.0.1:8000/api/studentInsert'
+        let updateResponseStudentUrl = `http://127.0.0.1:8000/api/studentsUpdateResponse/${studentId}`
         try {
-            const insertResponse = await fetch(insertStudentUrl, {
+            const insertResponse = await fetch(updateResponseStudentUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(studentData)
+                body: JSON.stringify(upDataResponse)
             });
             return insertResponse.json()
         } catch (err) {
             console.log(err)
         }
 
-        console.log(...studentData)
+        console.log(...upDataResponse)
     }
     useEffect(() => {
         fetchStudent()
