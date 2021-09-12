@@ -63,6 +63,7 @@ function Crud() {
             const deleteResponse = await fetch(deleteUrl)
             let deleteData = await deleteResponse.json();
             console.log(deleteData);
+            fetchStudent()
         } catch (e) {
             console.log(e)
         }
@@ -83,6 +84,7 @@ function Crud() {
                 },
                 body: JSON.stringify(studentData)
             });
+            fetchStudent()
             return insertResponse.json()
         } catch (err) {
             console.log(err)
@@ -103,6 +105,7 @@ function Crud() {
                 },
                 body: JSON.stringify(upDataResponse)
             });
+            fetchStudent()
             return updateInsertResponse.json()
         } catch (err) {
             console.log(err)
